@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct JERMCRYPTOApp: App {
+    @StateObject var  homeViewModel = HomeViewModel()
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor :UIColor(Color.blue)]
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                HomeView().navigationBarHidden(true)
+                
+            }
+            .environmentObject(homeViewModel)
         }
     }
 }
